@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+  
+  <h1 class="text-logo">{{ page.jap_title }}</h1>
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading"><div class="pseudo_dir">{{ page.server_prefix | default: "Who am I" }}</div> {{ "whoami" }}</h2>
+    <h3>{{ page.personal1 }}<a href={{page.blockchains_social_good}} target="_blank" rel="noopener noreferrer">{{ "_a single ideology:_" }}</a>{{ page.personal1part2 }}<a href={{page.free_software}} target="_blank" rel="noopener noreferrer">{{ "_open-source_" }}</a>{{"."}}</h3>
+    <h3>{{ page.personal2 }}<a href={{page.subtitle_links}} target="_blank" rel="noopener noreferrer">{{ "_СТАЛКЕР Group_" }}</a>{{ page.personal3 }}</h3>
+
+    <h2 class="post-list-heading"><div class="pseudo_dir">{{ page.server_prefix | default: "Projects" }}</div> {{ "ls projects/" }}</h2>
+    <h3><div class="comment">//Actively maintained - this is my current main project.</div><div class="blue_color inline_stuff">-rwxrw-rw-</div> <a href="https://bluechain.tech" target="_blank" rel="noopener noreferrer"><div class="project_name">_Bluechain_</div></a> A smart-contract based system for the optimal and efficient handling of industrial water, waste & energy resources in the EU.</h3>
+    <h3><div class="comment">//Inactive - I'm using part of the design for my other projects.</div><div class="blue_color inline_stuff">-rwxrw-r--</div> <a href="https://smarttransit.eu" target="_blank" rel="noopener noreferrer"><div class="project_name">_SmartTransit_</div></a> A fraud-resistant and decentralized electronic ticketing system, built on the NEO Blockchain.</h3>
+    <h3><div class="comment">//Actively maintained.</div><div class="blue_color inline_stuff">-rwχrwxrwx</div> <a href="https://github.com/Agouri/PyCorpusTools" target="_blank" rel="noopener noreferrer"><div class="project_name">_PyCorpusTools_</div></a> A corpus-text comparison and analysis tool, using cosine and boolean similarity models - made to complement the process of audioripping/translating/subtitling of a Matroska file. Built on Python3 and TKinter3.</h3>
+    <!-- <h3><div class="blue_color inline_stuff">-r--r--rwx</div> <a><div class="project_name">_RESTfulPoster_</div></a>Facebook Page autoposter & maintainer, in JavaFX. Uses Facebook REST Services & Graph API through OAuth2.0 <div class="comment inline_stuff">//Unmaintained. I'm not using Facebook anymore anyway :)</div></h3> -->
+
+    <h2 class="post-list-heading"><div class="pseudo_dir">{{ page.server_prefix | default: "Projects" }}</div> {{ "cat skills.md" }}</h2>
+    <div class="flex-row">
+	<div class="flex-column">
+	    <h2>## Languages</h2>
+	    <p><h3>
+		<ol>
+		  <li>C++17</li>
+		  <li>Java/JavaFX</li>
+		  <li>Python3</li>
+		  <li>Solidity, Equity (Smart Contracts)</li>
+		  <li>SQL, NoSQL</li>
+		  <li>HTML5 + CSS3 + PHP7</li>
+		  <li>TeX</li>
+		</ol>
+		</h3></p>
+	  </div>
+	  <div class="flex-column">
+	    <h2>## Tools & Frameworks</h2>
+	    <p><h3>
+		<ol>
+		  <li>Vim + tmux</li>
+		  <li>PostgreSQL, MongoDB</li>
+		  <li>Docker</li>
+		  <li>Angular5+</li>
+		  <li>git</li>
+		  <li>curl + JSON</li>
+		  <li>HTTP / REST / OAuth2 / API Development</li>
+		</ol>
+		</h3></p>
+	  </div>
+	</div>
+
+	<h2 class="post-list-heading"><div class="pseudo_dir">{{ page.server_prefix | default: "Projects" }}</div> {{ "history | grep &quot;Public Speaking&quot;" }}</h2>
+
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <h3>
+          <div class="post-meta">{{ post.date | date: date_format }}</div><div class="monokai_green_div inline_stuff"> {{" ~ "}} </div>
+          {% comment %}        
+          <a class="post-link" href="{{ post.url | relative_url }}">
+          {% endcomment %}
+          <div class="post-link">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+</div>
